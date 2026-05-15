@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Battle Tank - Remake Moderno</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <h1>BATTLE TANK</h1>
+        </header>
+        
+        <div class="game-container">
+            <div class="game-info">
+                <div class="player-info">
+                    <h2>Tanque Jugador</h2>
+                    <div class="player-stats">
+                        <div class="stat">
+                            <span>Vidas</span>
+                            <div class="stat-value" id="lives">3</div>
+                        </div>
+                        <div class="stat">
+                            <span>Puntuación</span>
+                            <div class="stat-value" id="score">0</div>
+                        </div>
+                        <div class="stat">
+                            <span>Nivel</span>
+                            <div class="stat-value" id="level">1</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <h3>Controles</h3>
+                    <div class="control-row">
+                        <button class="control-btn" id="up">↑</button>
+                    </div>
+                    <div class="control-row">
+                        <button class="control-btn" id="left">←</button>
+                        <button class="control-btn" id="down">↓</button>
+                        <button class="control-btn" id="right">→</button>
+                    </div>
+                    <div class="control-row">
+                        <button class="control-btn fire-btn" id="fire">DISPARAR</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="game-area">
+                <canvas id="gameCanvas"></canvas>
+                
+                <div class="screen" id="startScreen">
+                    <h2>BATTLE TANK</h2>
+                    <p>Controla tu tanque y destruye a los enemigos. Evita sus disparos y recoge mejoras para ganar ventaja.</p>
+                    <button class="btn" id="startBtn">INICIAR JUEGO</button>
+                </div>
+                
+                <div class="screen hidden" id="gameOverScreen">
+                    <h2>GAME OVER</h2>
+                    <p>Tu puntuación final: <span id="finalScore">0</span></p>
+                    <button class="btn" id="restartBtn">JUGAR DE NUEVO</button>
+                </div>
+            </div>
+            
+            <div class="audio-controls">
+                <div class="audio-control">
+                    <button class="toggle-btn active" id="musicToggle">Música: ON</button>
+                    <label>Vol. Música:</label>
+                    <input type="range" min="0" max="100" value="50" class="volume-slider" id="musicVolume">
+                    <span id="musicVolumeValue">50%</span>
+                </div>
+                <div class="audio-control">
+                    <button class="toggle-btn active" id="sfxToggle">EFX: ON</button>
+                    <label>Vol. Efectos:</label>
+                    <input type="range" min="0" max="100" value="70" class="volume-slider" id="sfxVolume">
+                    <span id="sfxVolumeValue">70%</span>
+                </div>
+                <div class="audio-control">
+                    <button class="btn" id="testAudio">Probar Audio</button>
+                </div>
+            </div>
+            
+            <div class="instructions">
+                <h3>Instrucciones</h3>
+                <ul>
+                    <li>Usa las flechas o los botones para mover tu tanque</li>
+                    <li>Presiona ESPACIO o el botón DISPARAR para disparar</li>
+                    <li>Destruye los tanques enemigos para ganar puntos</li>
+                    <li>Evita los disparos enemigos y las colisiones</li>
+                    <li>Recoge mejoras para obtener ventajas</li>
+                    <li>Completa cada nivel destruyendo todos los tanques enemigos</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Elementos de audio -->
+        <audio id="backgroundMusic" loop preload="auto">
+            <!-- Música Erika - se intentará cargar desde assets/audio/ -->
+        </audio>
+
+        <script src="js/battleTank.js"></script>
+    </body>
+    </html>
