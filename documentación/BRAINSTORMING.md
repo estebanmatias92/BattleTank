@@ -49,10 +49,48 @@ Centralizar propuestas de nuevas mecánicas, refactorización y escalabilidad de
 
 ---
 
+## 🚀 Nuevas Propuestas Técnicas (Vinculadas a SUGERENCIA01.md)
+
+## 💡 Idea 4: Reestructuración del Cliente mediante Escenas Modulares
+**Propuesta por:** Equipo de Desarrollo
+**Referencia:** `SUGERENCIA01.md` - Sección 1 (Phaser 3)
+**Descripción:** Romper el monolito de interfaz y juego mezclados en el DOM, implementando el sistema de ciclo de vida de Phaser 3.
+
+**Desarrollo Técnico & Críticas:**
+* **Implementación:** Dividir la aplicación en clases independientes que extiendan de `Phaser.Scene`:
+    1. `BootScene`: Configuración técnica y chequeo de capacidades gráficas.
+    2. `PreloadScene`: Carga asíncrona de assets (sprites del tanque, audio procedural y mapas JSON).
+    3. `MenuScene`: Manejo de la UI de inicio y controles de audio sin interferir con el bucle físico.
+    4. `PlayScene`: Núcleo del gameplay, renderizado de mapas por capas (suelo, obstáculos, tanques).
+* **Pros:** El código se vuelve modular, mantenible y respeta el principio de responsabilidad única. Resuelve de forma nativa la gestión de estados de la **Idea 3**.
+* **Contras:** Requiere reescribir la manipulación actual del Canvas nativo y adaptar los event listeners del teclado al sistema de inputs de Phaser.
+
+## 💡 Idea 5: Implementación de Estado Compartido e Interpolación
+**Propuesta por:** Equipo de Desarrollo
+**Referencia:** `SUGERENCIA01.md` - Sección 2 (Colyseus)
+**Descripción:** Definir un esquema de datos estricto en el servidor para sincronizar las físicas de los tanques y mitigar el impacto visual del lag en el cliente.
+
+**Desarrollo Técnico & Críticas:**
+* **Implementación:** El servidor Node.js correrá una simulación física simplificada. En lugar de transmitir la posición de cada tanque en cada frame (lo que saturaría el ancho de banda), el servidor transmite el estado modificado a una tasa fija (ej. 20Hz o 30Hz). El cliente (Phaser 3) recibirá estos paquetes y aplicará **interpolación lineal (Lerp)** para mover suavemente los tanques entre la última posición conocida y la nueva, evitando movimientos cortados ("teletransportes").
+* **Pros:** Optimiza drásticamente el consumo de red y viabiliza la **Idea 1** bajo conexiones estándar.
+* **Contras:** Introduce una complejidad matemática extra en el cliente para predecir o suavizar los movimientos locales mientras llega la respuesta del servidor.
+
+## 💡 Idea 6: Abstracción de Datos y Middleware de Autenticación
+**Propuesta por:** Equipo de Desarrollo
+**Referencia:** `SUGERENCIA01.md` - Sección 3 (Express + Prisma + MariaDB)
+**Descripción:** Implementar un pipeline seguro para el flujo de información entre el fin de una partida multijugador y el almacenamiento definitivo de métricas.
+
+**Desarrollo Técnico & Críticas:**
+* **Implementación:** Cuando la sala de Colyseus detecta el fin del juego, no permite que el cliente envíe sus propios datos. El mismo servidor de Colyseus, de forma interna (Server-to-Server), realiza una petición firmada con una clave secreta a la API de Express. Express recibe el JSON de la partida, lo valida mediante un esquema estricto de Prisma y realiza la transacción en MariaDB.
+* **Pros:** Blindaje total contra la manipulación de estadísticas (fundamental para viabilizar la **Idea 2**). El uso de Prisma automatiza las migraciones del esquema si decidimos agregar nuevos campos (como "precisión de tiro" o "tiempo de supervivencia").
+* **Contras:** Agrega latencia interna en el cierre de la partida; se debe manejar un estado de "guardando datos..." en la pantalla del usuario para que la desconexión no rompa la transacción.
+
+---
+
 ## 📝 Espacio para nuevas propuestas
 *(Agregá tu idea acá siguiendo el formato de arriba)*
 
-* **Idea 4:** [Título de la idea]
+* **Idea 7:** [Título de la idea]
     * **Propuesta por:** [Nombre]
     * **Descripción:** ...
     * **Desarrollo Técnico:** ...
