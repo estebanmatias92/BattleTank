@@ -13,3 +13,7 @@
 - Stats post partida por jugador (Tiempo de juego, tiempo vivo, cantiddad de disparos, enemigos destruidos)
 - localStorage (IndexDB)
 - Presentacion en Android requiere usar API tactil de Android
+
+## Recursos
+
+- [Evolution of Tank Battalion (Battle City) Games [1980-2020]](https://www.youtube.com/watch?v=5XvQMHoQe24)
