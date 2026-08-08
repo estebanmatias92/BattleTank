@@ -1,0 +1,3 @@
+# El Lobby se cierra sin partida si no alcanza el mínimo en el tiempo de espera
+
+El Lobby espera máximo 1 minuto; si al vencer el tiempo tiene 4 o más asistentes arranca la Partida, y si tiene menos de 4 se cierra sin partida. Consideramos y rechazamos esperar indefinidamente hasta llenar el mínimo o arrancar con menos de 4: lo primero degrada la experiencia de espera, lo segundo garantiza partidas casi vacías para quien quedó en cola. Al cerrarse, los usuarios vuelcan a la cola general y pueden buscar otro Lobby de inmediato (D22).

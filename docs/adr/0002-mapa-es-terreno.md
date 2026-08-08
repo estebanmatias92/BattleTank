@@ -1,0 +1,3 @@
+# El Mapa es un terreno, no un nivel del briefing
+
+Descartamos los "5 niveles por terreno" del briefing: un Mapa ES un terreno (Tundra, Ciudad, Desierto, Montaña, etc.) y no existe progresión de niveles dentro de él. En un multijugador donde la Partida es un evento sobre un único Mapa, la jerarquía nivel→terreno no aporta valor: la votación del Lobby presenta 2 Mapas y la Partida ocurre sobre el elegido, así que cada terreno es directamente un Mapaje candidato. Conservar "niveles" habría fijado una estructura de contenido y un flujo de progreso que contradicen la Partida como evento único ya decidida (ADR 0001).
