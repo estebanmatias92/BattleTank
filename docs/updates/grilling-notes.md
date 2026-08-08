@@ -5,7 +5,7 @@ Sesión de grilling + domain-modeling sobre el PRD de BattleTank. Pausada para r
 ## Cómo retomar
 
 1. Leer este archivo.
-2. Leer `CONTEXT.md` (glosario del consenso) y `docs/adr/0001-partidas-sin-ganador.md`.
+2. Leer `../CONTEXT.md` (glosario del consenso) y `../adr/0001-partidas-sin-ganador.md`.
 3. Continuar grilleando las preguntas abiertas de abajo, una por vez.
 
 ## Consenso alcanzado (D1–D10)
@@ -21,15 +21,15 @@ Sesión de grilling + domain-modeling sobre el PRD de BattleTank. Pausada para r
 - **D9 — Desconexión:** computa el puntaje igualmente, como si hubiera salido por eliminación.
 - **D10 — Multiplicador:** descartado por ahora. El puntaje es la suma plana de enemigos eliminados.
 
-## Modelo de dominio resultante (ver CONTEXT.md)
+## Modelo de dominio resultante (ver ../CONTEXT.md)
 
 Flujo: **Usuario** registrado → **Lobby** (cola + votación de mapa) → **Partida** FFA sin ganador → cada jugador **sale** (eliminación, desconexión, último vivo o fin de tiempo) → su **Puntaje** se computa y asienta → **Tabla de posiciones** se actualiza en ese instante.
 
 ## Preguntas abiertas por grillar
 
-- Capacidad del lobby (briefing sugería 10 jugadores, sin confirmar).
+- Capacidad del lobby ([briefing](../prd-inputs/briefing.md) sugería 10 jugadores, sin confirmar).
 - Mecánica de votación de mapa: cómo se elige entre candidatos, empates.
-- Boosters / power-ups aleatorios en el campo (en briefing, sin decidir si entran al MVP).
-- Qué stats se asientan por jugador al salir (briefing sugería tiempo de juego, tiempo vivo, cantidad de disparos, enemigos destruidos).
-- Alcance por fases: qué entra en el MVP (Fases 1–3 de SUGERENCIA01) y qué queda de visión futura.
-- Terrenos / mapas: los "5 niveles por terreno" de briefing, sin resolver cómo se organizan.
+- Boosters / power-ups aleatorios en el campo (en [briefing](../prd-inputs/briefing.md), sin decidir si entran al MVP).
+- Qué stats se asientan por jugador al salir ([briefing](../prd-inputs/briefing.md) sugería tiempo de juego, tiempo vivo, cantidad de disparos, enemigos destruidos).
+- Alcance por fases: qué entra en el MVP (Fases 1–3 de [SUGERENCIA01](../prd-inputs/SUGERENCIA01.md)) y qué queda de visión futura.
+- Terrenos / mapas: los "5 niveles por terreno" de [briefing](../prd-inputs/briefing.md), sin resolver cómo se organizan.
