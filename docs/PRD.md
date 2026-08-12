@@ -115,7 +115,7 @@ Registro/Login → Lobby (cola + Votar 2→1) → [mín. 4 o 60s] → Partida FF
 
 ## 9. Fuentes y decisiones
 
-- [Glosario del dominio](./CONTEXT.md)
+- [Glosario del dominio](../CONTEXT.md)
 - [Notas de grilling y decisiones D1–D22](./updates/grilling-notes.md)
 - [ADR 0001 — Partidas sin ganador](./adr/0001-partidas-sin-ganador.md)
 - [ADR 0002 — El Mapa es un terreno](./adr/0002-mapa-es-terreno.md)

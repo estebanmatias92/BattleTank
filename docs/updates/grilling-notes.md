@@ -5,7 +5,7 @@ Sesión de grilling + domain-modeling sobre el PRD de BattleTank. Pausada para r
 ## Cómo retomar
 
 1. Leer este archivo.
-2. Leer `../CONTEXT.md` (glosario del consenso), `../adr/0001-partidas-sin-ganador.md`, `../adr/0002-mapa-es-terreno.md` y `../adr/0003-lobby-cierra-sin-minimo.md`.
+2. Leer `../../CONTEXT.md` (glosario del consenso), `../adr/0001-partidas-sin-ganador.md`, `../adr/0002-mapa-es-terreno.md` y `../adr/0003-lobby-cierra-sin-minimo.md`.
 3. Continuar grilleando las preguntas abiertas de abajo, una por vez.
 
 ## Consenso alcanzado (D1–D10)
@@ -39,7 +39,7 @@ Sesión de grilling + domain-modeling sobre el PRD de BattleTank. Pausada para r
 
 ## Estado: sesión completa
 
-## Modelo de dominio resultante (ver ../CONTEXT.md)
+## Modelo de dominio resultante (ver ../../CONTEXT.md)
 
 Flujo: **Usuario** registrado → **Lobby** (cola + votación de **2 mapas candidatos**, espera 1 min, mín 4 / máx 10, se cierra sin partida si <4) → **Partida** FFA sin ganador (un solo Mapa-terreno) → cada jugador **sale** (eliminación, desconexión, último vivo o fin de tiempo) → su **Puntaje** (100 pts/enemigo, única métrica) se computa y asienta → **Tabla de posiciones** (top 100 + posición propia; **suma acumulada**) se actualiza al instante → el jugador **vuelve a la cola**.
 
